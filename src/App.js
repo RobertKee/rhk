@@ -1,12 +1,52 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import Sidebar from "react-sidebar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">Robert Hayes Kee</header>
-    </div>
-  );
+const mql = window.matchMedia(`(min-width: 800px)`);
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarDocked: mql.matches,
+      sidebarOpen: false
+    };
+
+    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
+
+  componentWillMount() {
+    mql.addListener(this.mediaQueryChanged);
+  }
+
+  componentWillUnmount() {
+    mql.removeListener(this.mediaQueryChanged);
+  }
+
+  onSetSidebarOpen(open) {
+    this.setState({ sidebarOpen: open });
+  }
+
+  mediaQueryChanged() {
+    this.setState({ sidebarDocked: mql.matches, sidebarOpen: false });
+  }
+
+  render() {
+    return (
+      <div>
+        <Sidebar
+          sidebar={<b>Sidebar content</b>}
+          open={this.state.sidebarOpen}
+          docked={this.state.sidebarDocked}
+          onSetOpen={this.onSetSidebarOpen}
+        >
+          <header className="App-header">
+            Robert Hayes Kee
+          </header>
+        </Sidebar>
+      </div>
+    );
+  }
 }
 
 export default App;
