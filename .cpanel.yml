@@ -2,8 +2,8 @@
 deployment:
   tasks:
   - export DEPLOYPATH=/home3/roberwo4/public_html/
-  - npm install
-  - npm run build
+  - /bin/npm install
+  - /bin/npm run build
   - /bin/rm -Rf $DEPLOYPATH
   - /bin/mkdir $DEPLOYPATH
   - /bin/cp -R build/ $DEPLOYPATH
