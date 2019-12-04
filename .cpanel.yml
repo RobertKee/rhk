@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/roberwo4/public_html/
+    - export DEPLOYPATH=/home3/roberwo4/public_html/
   - /bin/rm -Rf $DEPLOYPATH
   - /bin/mkdir $DEPLOYPATH
   - /bin/cp -R src/ $DEPLOYPATH
