@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/roberwo4/public_html/
-    - /bin/cp -R rhk 
+    - export DEPLOYPATH=/home/rober/public_html/
+    - /bin/cp -R rhk DEPLOYPATH
