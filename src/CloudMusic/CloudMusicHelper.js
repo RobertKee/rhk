@@ -1,44 +1,52 @@
-import generate from "@babel/generator"
+import {Component} from "react";
 
-export default getDots = () => {
-    let x, y, blackPixels = []
-    let sixDots = this.generateSixDots
+export class CloudMusicHelper extends Component {
 
-    for (i = 0; i < 6; i++) {
-        x = sixDots[i].x
-        y = sixDots[i].y
+    getDots = () => {
+        let x, y, blackPixels = [], i
+        let sixDots = this.generateSixDots()
 
-    blackPixels.add(
-        {"x":x, "y":y},
-        {"x":x, "y":y-1},
-        {"x":x, "y":y+1},
-        {"x":x+1, "y":y},
-        {"x":x+1, "y":y-1},
-        {"x":x+1, "y":y+1},
-        {"x":x-1, "y":y},
-        {"x":x-1, "y":y-1},
-        {"x":x-1, "y":y+1}
-        )
-    }
-    
-    return blackPixels
-}
+        for (i = 0; i < 6; i++) {
+            x = sixDots[i].x
+            y = sixDots[i].y
 
-generateSixDots = () => {
-    let screenSize = this.getScreenSize
-    let dots = [], dotX, dotY
+            blackPixels.push(
+                {"x": x, "y": y},
+                {"x": x, "y": y - 1},
+                {"x": x, "y": y + 1},
+                {"x": x + 1, "y": y},
+                {"x": x + 1, "y": y - 1},
+                {"x": x + 1, "y": y + 1},
+                {"x": x - 1, "y": y},
+                {"x": x - 1, "y": y - 1},
+                {"x": x - 1, "y": y + 1}
+            )
+        }
 
-    while (dots.length < 6) {
-        dotX = Math.round(Math.random() * (screenSize.x-1))
-        dotY = Math.round(Math.random() * (screenSize.y-1))
-    
-        dots.add({"x": dotX, "y": dotY})
+        return blackPixels
     }
 
-    return dots
-}
+    generateSixDots = () => {
+        let screenSize = this.getScreenSize()
+        let dots = [], dotX, dotY
 
-getScreenSize = () => {
-    let screenSize = [2000,1000]
-    return screenSize
+        while (dots.length < 6) {
+            dotX = Math.round((Math.random() * (screenSize.x - 1)))
+            dotY = Math.round((Math.random() * (screenSize.y - 1)))
+            dots.push({"x": dotX, "y": dotY})
+        }
+        return dots
+    }
+
+    getScreenSize = () => {
+        let screenSize = {"x": 2000, "y": 1000}
+        return screenSize
+    }
+
+
+
+
+    render() {
+        return({})
+    }
 }
