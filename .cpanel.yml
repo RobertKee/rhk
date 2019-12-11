@@ -6,4 +6,4 @@ deployment:
   - /bin/npm run build
   - /bin/rm -Rf $DEPLOYPATH
   - /bin/mkdir $DEPLOYPATH
-  - /bin/cp -R build/ $DEPLOYPATH
+  - /bin/cp -R build/* $DEPLOYPATH

@@ -1,13 +1,23 @@
 {
   "name": "rhk",
-  "homepage": "http://www.http://roberthayeskee.com/",
+  "homepage": "http://www.roberthayeskee.com/",
   "version": "0.1.0",
   "private": true,
+  "babel": {
+    "presets": [],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router-native": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-sidebar": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

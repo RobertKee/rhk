@@ -1,5 +1,9 @@
 import React from "react";
 import Sidebar from "react-sidebar";
+import Home from "./Home/Home";
+import SideBarContents from "./SideBarContents/SideBarContents";
+import "./App.css";
+import {NativeRouter} from "react-router-native";
 
 const mql = window.matchMedia(`(min-width: 800px)`);
 
@@ -32,19 +36,32 @@ class App extends React.Component {
   }
 
   render() {
+    const sideBarStyles = {
+      sidebar: {
+        "padding-right": "05%"
+      }
+    };
+
     return (
-      <div>
-        <Sidebar
-          sidebar={<b>Sidebar content</b>}
-          open={this.state.sidebarOpen}
-          docked={this.state.sidebarDocked}
-          onSetOpen={this.onSetSidebarOpen}
-        >
-          <header className="App-header">
-            Robert Hayes Kee
-          </header>
-        </Sidebar>
-      </div>
+      <NativeRouter>
+        <div>
+          <Sidebar
+            sidebar={
+              <b className="SideBarContents">
+                <SideBarContents />
+              </b>
+            }
+            open={this.state.sidebarOpen}
+            docked={this.state.sidebarDocked}
+            onSetOpen={this.onSetSidebarOpen}
+            styles={sideBarStyles}
+          >
+            <b>
+              <Home />
+            </b>
+          </Sidebar>
+        </div>
+      </NativeRouter>
     );
   }
 }

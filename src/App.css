@@ -11,3 +11,16 @@
   text-decoration: none;
   color: black;
 }
+
+.sidebar-header a {
+  text-decoration-style: wavy;
+  color: black;
+}
+
+.SideBar {
+  width: auto;
+}
+
+.SideBarContents {
+  padding: 10%;
+}
