@@ -16,7 +16,7 @@ export default class SideBarContents extends React.Component {
                         <Link to="/bio">Bio</Link>
                     </li>
                     <li>
-                        Code
+                        <Link to="/src/CloudMusic/CloudMusic.js">Code</Link>
                     </li>
                     <li>
                         Audio

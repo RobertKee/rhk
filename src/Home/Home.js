@@ -7,6 +7,7 @@ export default class Home extends React.Component {
                 <header className="App-header">
                     Robert Hayes Kee
                 </header>
+                <button />
             </div>
         )
     }
